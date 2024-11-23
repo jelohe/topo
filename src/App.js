@@ -12,10 +12,17 @@ function App() {
       ))
       : null;
 
+  const appStyle = {
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    top: 0,
+    bottom: 0
+  }
+
   return (
     <>
     <div className="App">
-      <div className="fixed-top">
+      <div className="fixed-top" style={appStyle}>
         {secretCards}
         <AddCodeModal />
       </div>
