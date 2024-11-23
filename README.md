@@ -7,17 +7,17 @@
 
 ## Development
 
-Just the standard [create-react-app](https://create-react-app.dev/) stuff:
+#### Just the standard [create-react-app](https://create-react-app.dev/) stuff:
 
-`npm i` for fetching those sweet sweet js libraries.
+`npm i` fetching those sweet sweet js libraries.
 
-`npm run dev` for development.
+`npm run dev` development server.
 
-`npm run prod` for production.
+`npm run prod` production build.
 
 #### *yada yada yada ...*
 
 
 ## To-Do
 
-* Sync and backup your data using [Topete](https://github.com/jelohe/topete)*
+* Sync and backup your data using [Topete](https://github.com/jelohe/topete)
