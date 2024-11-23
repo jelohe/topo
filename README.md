@@ -5,7 +5,7 @@
 * QR Scanner to fetch new Secrets.
 * Stores your scanned Secrets in [localStorage](https://www.w3schools.com/jsref/prop_win_localstorage.asp)
 
-#### Development
+## Development
 
 Just the standard [create-react-app](https://create-react-app.dev/) stuff:
 
@@ -16,6 +16,6 @@ Just the standard [create-react-app](https://create-react-app.dev/) stuff:
 *yada yada yada ...*
 
 
-#### To-Do
+## To-Do
 
 * Sync and backup your data using [Topete](https://github.com/jelohe/topete)*
