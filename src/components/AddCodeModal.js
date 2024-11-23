@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card';
 import { Scanner } from '@yudiel/react-qr-scanner';
+import Theme from './../constants/theme';
 
 function AddCodeModal() {
   const [show, setShow] = useState(false);
@@ -19,11 +20,18 @@ function AddCodeModal() {
     })
   }
 
+  const buttonStyle = { backgroundColor: Theme.gray04, color: Theme.white, cursor: 'cell' };
+  const buttonTextStyle = { fontSize: Theme.lg };
+
   return (
     <div>
-      <Card className="bg-primary m-3 text-white text-center" onClick={handleShow}>
+      <Card
+        className="AddCard m-3 text-center bg-gradient" 
+        style={buttonStyle} 
+        onClick={handleShow}
+      >
         <Card.Body>
-          <Card.Title>+</Card.Title>
+          <Card.Title style={buttonTextStyle}>+</Card.Title>
         </Card.Body>
       </Card>
 
