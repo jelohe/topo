@@ -20,7 +20,7 @@ function AddCodeModal() {
     })
   }
 
-  const buttonStyle = { backgroundColor: Theme.gray04, color: Theme.white, cursor: 'cell' };
+  const buttonStyle = { backgroundColor: Theme.magenta, color: Theme.white, cursor: 'cell' };
   const buttonTextStyle = { fontSize: Theme.lg };
 
   return (
