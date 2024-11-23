@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocalStorage } from '@uidotdev/usehooks';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card';
@@ -7,17 +8,28 @@ import Theme from './../constants/theme';
 
 function AddCodeModal() {
   const [show, setShow] = useState(false);
+  const [secrets, updateSecrets] = useLocalStorage("secrets", "");
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleScan = codes => {
-    codes.forEach(code => {
-      const rawParms = code.rawValue.split("?").pop();
+    const newSecrets = codes.reduce((secretsToAdd, secretURI) => {
+      const rawParms = secretURI.rawValue.split("?").pop();
       const params = new URLSearchParams(rawParms);
 
-      localStorage.setItem(params.get("issuer"), params.get("secret"));
-    })
+      secretsToAdd.push({ [params.get('issuer')]: params.get("secret") });
+
+      return secretsToAdd;
+    }, []);
+    
+    if (newSecrets) {
+      const currentSecrets = Object.assign({}, ...secrets);
+      const incomingSecrets = Object.assign({}, ...newSecrets);
+      const mergedSecrets = { ...currentSecrets, ...incomingSecrets };
+
+      updateSecrets(Object.entries(mergedSecrets).map(([key, value]) => ({ [key]: value })));
+    }
   }
 
   const buttonStyle = { backgroundColor: Theme.magenta, color: Theme.white, cursor: 'cell' };

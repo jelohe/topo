@@ -1,6 +1,6 @@
 # Topo Auth 🦦
 
-#### A simple 2fa auth webapp on react.
+#### A simple 2fa authenticator webapp on react.
 
 * QR Scanner to fetch new Secrets.
 * Stores your scanned Secrets in [localStorage](https://www.w3schools.com/jsref/prop_win_localstorage.asp)

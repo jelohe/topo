@@ -2,10 +2,7 @@ import Card from 'react-bootstrap/Card';
 import { TOTP } from 'totp-generator';
 import Theme from '../constants/theme';
 
-function CodeCard({ name }) {
-  const secret = localStorage.getItem(name);
-  if (!secret) return null;
-
+function CodeCard({ name, secret }) {
   const { otp: rawCode } = TOTP.generate(secret, { encoding: "ascii" })
   const prettyCode = rawCode.slice(0,3) + " " + rawCode.slice(3);
 
