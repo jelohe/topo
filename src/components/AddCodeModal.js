@@ -24,7 +24,7 @@ function AddCodeModal() {
         </Modal.Header>
         <Modal.Body style={{ minHeight: '550px' }}>
           <p>Scan a secret QR to generate one time passwords</p>
-          <Scanner onScan={alert.log} />
+          <Scanner onScan={alert} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
