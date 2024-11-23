@@ -5,7 +5,10 @@ import { TOTP } from 'totp-generator';
 import './App.css';
 
 function CodeCard({ name }) {
-  const { otp: newCode } = TOTP.generate("TESTCODE")
+  const secret = localStorage.getItem(name);
+  if (!secret) return null;
+
+  const { otp: newCode } = TOTP.generate(secret, { encoding: "ascii" })
 
   return (
     <Card className="m-3 bg-secondary text-white">
@@ -22,7 +25,8 @@ function App() {
     <>
     <div className="App">
       <div className="fixed-top">
-        <CodeCard name="Test Integration 1" />
+        <CodeCard name="Topete" />
+        <CodeCard name="GitHub" />
         <AddCodeModal />
       </div>
       <div className="App-header bg-dark">

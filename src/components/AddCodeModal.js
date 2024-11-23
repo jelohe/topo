@@ -10,6 +10,15 @@ function AddCodeModal() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleScan = codes => {
+    codes.forEach(code => {
+      const rawParms = code.rawValue.split("?").pop();
+      const params = new URLSearchParams(rawParms);
+
+      localStorage.setItem(params.get("issuer"), params.get("secret"));
+    })
+  }
+
   return (
     <div>
       <Card className="bg-primary m-3 text-white text-center" onClick={handleShow}>
@@ -22,9 +31,9 @@ function AddCodeModal() {
         <Modal.Header closeButton>
           <Modal.Title>New Secret</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{ minHeight: '550px' }}>
+        <Modal.Body>
           <p>Scan a secret QR to generate one time passwords</p>
-          <Scanner onScan={alert} />
+          <Scanner onScan={handleScan} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
