@@ -43,7 +43,7 @@ function CodeCard({ name, secret }) {
   const [code, setCode] = useState(generateRawCode(secret));
   useEffect(() => { 
     setInterval(() => setCode(generateRawCode(secret)), pollingTime)
-  }, [secret])
+  })
 
   const toClipboard = _ => navigator.clipboard.writeText(code);
 
