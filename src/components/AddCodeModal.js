@@ -29,6 +29,7 @@ function AddCodeModal() {
       const mergedSecrets = { ...currentSecrets, ...incomingSecrets };
 
       updateSecrets(Object.entries(mergedSecrets).map(([key, value]) => ({ [key]: value })));
+      setShow(false);
     }
   }
 
