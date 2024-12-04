@@ -3,6 +3,31 @@ import Card from 'react-bootstrap/Card';
 import { TOTP } from 'totp-generator';
 import Theme from '../constants/theme';
 
+function CodeCard({ name, secret }) {
+  if (!name || !secret) return null;
+
+  const cardStyle = {
+    backgroundColor: Theme.gray15,
+    color: Theme.black,
+    cursor: 'alias'
+  };
+
+  const pollingTime = 30000
+  const [code, setCode] = useState(generateRawCode(secret));
+  useEffect(() => { 
+    setInterval(() => setCode(generateRawCode(secret)), pollingTime)
+  })
+
+  const toClipboard = _ => navigator.clipboard.writeText(code);
+
+  return (
+    <Card className="CodeCard m-3" style={cardStyle} onClick={toClipboard}>
+      <CodeCardHeader name={name} />
+      <CodeCardBody code={rawToPretty(code)} />
+    </Card>
+  );
+}
+
 function CodeCardHeader({ name }) {
   const headerStyle = {
     fontWeight: 'thin',
@@ -30,29 +55,6 @@ function generateRawCode(secret) {
   const config = { encoding: 'ascii' }
   const { otp } = TOTP.generate(secret, config)
   return otp
-}
-
-function CodeCard({ name, secret }) {
-  const cardStyle = {
-    backgroundColor: Theme.gray15,
-    color: Theme.black,
-    cursor: 'alias'
-  };
-
-  const pollingTime = 30000
-  const [code, setCode] = useState(generateRawCode(secret));
-  useEffect(() => { 
-    setInterval(() => setCode(generateRawCode(secret)), pollingTime)
-  })
-
-  const toClipboard = _ => navigator.clipboard.writeText(code);
-
-  return (
-    <Card className="CodeCard m-3" style={cardStyle} onClick={toClipboard}>
-      <CodeCardHeader name={name} />
-      <CodeCardBody code={rawToPretty(code)} />
-    </Card>
-  );
 }
 
 export default CodeCard;

@@ -10,7 +10,7 @@ function SecretsToCards({ secrets }) {
       : null
 }
 
-function secretToCard(secret) {
+function secretToCard(secret = []) {
   return Object.entries(secret).map(([n, s]) => ( 
     (n && s) ? <CodeCard name={n} secret={s} key={n}/> : []
   ))
