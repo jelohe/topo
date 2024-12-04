@@ -18,12 +18,16 @@ function AddCodeModal() {
       const rawParms = secretURI.rawValue.split("?").pop();
       const params = new URLSearchParams(rawParms);
 
-      secretsToAdd.push({ [params.get('issuer')]: params.get("secret") });
+      const issuer = params.get('issuer');
+      const secret = params.get('secret');
+      if (issuer && secret) {
+        secretsToAdd.push({ [params.get('issuer')]: params.get("secret") });
+      }
 
       return secretsToAdd;
     }, []);
     
-    if (newSecrets) {
+    if (newSecrets.length > 0) {
       const currentSecrets = Object.assign({}, ...secrets);
       const incomingSecrets = Object.assign({}, ...newSecrets);
       const mergedSecrets = { ...currentSecrets, ...incomingSecrets };
