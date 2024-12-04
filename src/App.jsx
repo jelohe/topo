@@ -11,8 +11,8 @@ function SecretsToCards({ secrets }) {
 }
 
 function secretToCard(secret) {
-  return Object.entries(secret).map(([n, s]) => (
-    <CodeCard name={n} secret={s} key={n}/>
+  return Object.entries(secret).map(([n, s]) => ( 
+    (n && s) ? <CodeCard name={n} secret={s} key={n}/> : []
   ))
 }
 
