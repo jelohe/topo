@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,Symbol.toStringTag,{value:"Module"});const r=require("./pure.js");var e;(e=globalThis.BarcodeDetector)!=null||(globalThis.BarcodeDetector=r.BarcodeDetector);exports.setZXingModuleOverrides=r.setZXingModuleOverrides;
