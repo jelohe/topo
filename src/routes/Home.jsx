@@ -3,6 +3,7 @@ import logo from '../assets/logo-pink.svg'
 import AddCodeCard from '../components/AddCodeCard'
 import CodeCard from '../components/CodeCard'
 import { useLocalStorage } from '@uidotdev/usehooks'
+import Theme from './../constants/theme'
 
 function Home() {
   const [secrets] = useLocalStorage("secrets", "")
@@ -22,7 +23,7 @@ function Home() {
         <CodeCards secrets={secrets} />
         <AddCodeCard onClick={() => navigate('/add')} />
       </div>
-      <div className="App-header" style={{ backgroundColor: "#bcbcbc" }}>
+      <div className="App-header" style={{ backgroundColor: Theme.gray14 }}>
         <img src={logo} className="App-logo gradient" alt="logo" />
       </div>
     </div>

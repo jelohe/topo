@@ -1,28 +1,28 @@
+import Button from 'react-bootstrap/Button';
 import { useLocalStorage } from '@uidotdev/usehooks'
 import { useNavigate } from 'react-router'
 import { Scanner } from '@yudiel/react-qr-scanner'
 
 function AddSecret() {
-  const [secrets, updateSecrets] = useLocalStorage("secrets", "")
+  const [secrets, updateSecrets] = useLocalStorage("secrets", {})
   const navigate = useNavigate()
 
   function handleScan(uris) {
-    const scannedSecrets = uris.reduce(groupValids, {}) 
-    const areSecrets = Object.keys(scannedSecrets).length
+    const scannedSecrets = uris.reduce(aggregateValid, {}) 
+    const hasScannedSecrets = Object.keys(scannedSecrets).length
 
-    if (areSecrets) {
+    if (hasScannedSecrets) {
       updateSecrets({ ...secrets, ...scannedSecrets })
       navigate("/")
     }
   }
 
-  function groupValids(secrets, uri) {
-    return { ...secrets, ...parse(uri) }
+  function aggregateValid(secrets, uri) {
+    return ({...secrets, ...extractSecret(uri.rawValue)})
   }
 
-  function parse(uri) {
-    const rawParms = uri.rawValue.split("?").pop()
-    const params = new URLSearchParams(rawParms)
+  function extractSecret(uri) {
+    const params = new URLSearchParams(uri.split("?").pop())
     const name = params.get('issuer')
     const secret = params.get('secret')
 
@@ -32,8 +32,15 @@ function AddSecret() {
   }
 
   return (
-    <div>
+    <div className="App-header" style={{ backgroundColor: "#bcbcbc" }}>
       <Scanner onScan={handleScan} />
+      <Button 
+        variant="secondary"
+        style={{ marginTop: '12px' }}
+        onClick={() => navigate('/')}
+      >
+        Back
+      </Button>
     </div>
   );
 }

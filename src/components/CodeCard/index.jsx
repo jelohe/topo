@@ -12,7 +12,8 @@ function CodeCard({ name, secret }) {
 
   useEffect(() => { 
     const pollingTime = 30000
-    setInterval(() => setCode(generateRawCode(secret)), pollingTime)
+    const intervalId = setInterval(() => setCode(generateRawCode(secret)), pollingTime)
+    return () => clearInterval(intervalId)
   })
 
   function generateRawCode(secret) {
