@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
+import Header from './Header'
+import Body from './Body'
 import { TOTP } from 'totp-generator';
-import Theme from '../constants/theme';
+import Theme from '../../constants/theme';
 
 function CodeCard({ name, secret }) {
   if (!name || !secret) return null;
@@ -30,31 +32,10 @@ function CodeCard({ name, secret }) {
 
   return (
     <Card className="CodeCard m-3" style={cardStyle} onClick={toClip}>
-      <CodeCardHeader name={name} />
-      <CodeCardBody code={pretty(code)} />
+      <Header name={name} />
+      <Body code={pretty(code)} />
     </Card>
   );
-}
-
-function CodeCardHeader({ name }) {
-  const headerStyle = {
-    fontWeight: 'thin',
-    fontStyle: 'italic',
-    letterSpacing: '2px',
-    fontSize: Theme.md
-  };
-
-  return <Card.Header style={headerStyle}>{name}</Card.Header>
-}
-
-function CodeCardBody({ code }) {
-  const codeStyle = { letterSpacing: Theme.sm, fontSize: Theme.lg };
-
-  return (
-    <Card.Body>
-      <Card.Title style={codeStyle}>{code}</Card.Title>
-    </Card.Body>
-  )
 }
 
 export default CodeCard;
