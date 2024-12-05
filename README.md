@@ -24,3 +24,7 @@
 * generate qr for stored secrets
 * add secrets manually (string instead of qr)
 * unsafe cloud storage
+
+
+## License
+See [LICENSE](LICENSE.md) to learn more (MIT).
