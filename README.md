@@ -7,17 +7,17 @@
 
 ## Development
 
-#### Just the standard [create-react-app](https://create-react-app.dev/) stuff:
+#### Just the standard [vite](https://vite.dev/) stuff:
 
 `npm i` fetching those sweet sweet js libraries.
 
 `npm run dev` development server.
 
-`npm run prod` production build.
-
-#### *yada yada yada ...*
-
+`npm run build` production build.
 
 ## To-Do
 
-* Sync and backup your data using [Topete](https://github.com/jelohe/topete)
+* 🕶️ mode
+* generate qr for stored secrets
+* add secrets manually (string instead of qr)
+* unsafe cloud storage
