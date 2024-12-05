@@ -22,7 +22,7 @@ function CodeCard({ name, secret }) {
   }
   
   const toClip = () => navigator.clipboard.writeText(code)
-  const pretty = code => `${code.slice(0, 3)} ${code.slice(3)}`
+  const pretty = `${code.slice(0, 3)} ${code.slice(3)}`
 
   const cardStyle = {
     backgroundColor: Theme.gray15,
@@ -33,7 +33,7 @@ function CodeCard({ name, secret }) {
   return (
     <Card className="CodeCard m-3" style={cardStyle} onClick={toClip}>
       <Header name={name} />
-      <Body code={pretty(code)} />
+      <Body code={pretty} />
     </Card>
   );
 }

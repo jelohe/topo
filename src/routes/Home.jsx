@@ -4,12 +4,6 @@ import AddCodeCard from '../components/AddCodeCard'
 import CodeCard from '../components/CodeCard'
 import { useLocalStorage } from '@uidotdev/usehooks'
 
-function CodeCards({ secrets }) {
-  return Object.keys(secrets).map(name => (
-    <CodeCard name={name} key={name} secret={secrets[name]} />
-  ))
-}
-
 function Home() {
   const [secrets] = useLocalStorage("secrets", "")
   const navigate = useNavigate()
@@ -34,6 +28,14 @@ function Home() {
     </div>
     </>
   )
+}
+
+function CodeCards({ secrets }) {
+  return Object
+    .keys(secrets)
+    .map(name => (
+      <CodeCard name={name} key={name} secret={secrets[name]} />
+    ))
 }
 
 export default Home

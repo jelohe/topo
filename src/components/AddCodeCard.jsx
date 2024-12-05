@@ -7,6 +7,7 @@ function AddCodeCard({ onClick }) {
     color: Theme.white,
     cursor: 'cell' 
   };
+
   const buttonTextStyle = { fontSize: Theme.lg };
 
   return (
