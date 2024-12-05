@@ -13,7 +13,7 @@
 
 `npm run dev` development server.
 
-`npm run build` production build.
+`npm run build` production build (`/dist`).
 
 ## To-Do
 

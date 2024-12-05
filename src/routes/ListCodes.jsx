@@ -5,7 +5,7 @@ import CodeCard from '../components/CodeCard'
 import { useLocalStorage } from '@uidotdev/usehooks'
 import Theme from './../constants/theme'
 
-function Home() {
+function ListCodes() {
   const [secrets] = useLocalStorage("secrets", "")
   const navigate = useNavigate()
 
@@ -39,4 +39,4 @@ function CodeCards({ secrets }) {
     ))
 }
 
-export default Home
+export default ListCodes
