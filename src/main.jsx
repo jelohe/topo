@@ -3,15 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router'
-import ListCodes from './routes/ListCodes'
-import AddSecret from './routes/AddSecret'
+import ListPage from './routes/ListPage'
+import AddPage from './routes/AddPage'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/"    element={<ListCodes />} />
-        <Route path="/add" element={<AddSecret />} />
+        <Route path="/"    element={<ListPage />} />
+        <Route path="/add" element={<AddPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

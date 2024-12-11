@@ -3,7 +3,7 @@ import { useLocalStorage } from '@uidotdev/usehooks'
 import { useNavigate } from 'react-router'
 import { Scanner } from '@yudiel/react-qr-scanner'
 
-function AddSecret() {
+function AddPage() {
   const [secrets, updateSecrets] = useLocalStorage("secrets", {})
   const navigate = useNavigate()
 
@@ -45,4 +45,4 @@ function AddSecret() {
   );
 }
 
-export default AddSecret;
+export default AddPage;

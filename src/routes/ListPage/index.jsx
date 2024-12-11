@@ -1,15 +1,15 @@
 import { useNavigate } from 'react-router'
-import logo from '../assets/logo-pink.svg'
-import AddCodeCard from '../components/AddCodeCard'
-import CodeCard from '../components/CodeCard'
 import { useLocalStorage } from '@uidotdev/usehooks'
-import Theme from './../constants/theme'
+import logo from '@/assets/logo-pink.svg'
+import Theme from '@/constants/theme'
+import AddButton from './components/AddButton'
+import CodeCard from './components/CodeCard'
 
-function ListCodes() {
+function ListPage() {
   const [secrets] = useLocalStorage("secrets", "")
   const navigate = useNavigate()
 
-  const appStyle = {
+  const style = {
     overflowX: 'hidden',
     overflowY: 'auto',
     top: 0,
@@ -19,9 +19,9 @@ function ListCodes() {
   return (
     <>
     <div className="App">
-      <div className="fixed-top" style={appStyle}>
-        <CodeCards secrets={secrets} />
-        <AddCodeCard onClick={() => navigate('/add')} />
+      <div className="fixed-top" style={style}>
+        <CodeList secrets={secrets} />
+        <AddButton onClick={() => navigate('/add')} />
       </div>
       <div className="App-header" style={{ backgroundColor: Theme.gray14 }}>
         <img src={logo} className="App-logo gradient" alt="logo" />
@@ -31,7 +31,7 @@ function ListCodes() {
   )
 }
 
-function CodeCards({ secrets }) {
+function CodeList({ secrets }) {
   return Object
     .keys(secrets)
     .map(name => (
@@ -39,4 +39,4 @@ function CodeCards({ secrets }) {
     ))
 }
 
-export default ListCodes
+export default ListPage

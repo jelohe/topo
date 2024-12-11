@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
+import { TOTP } from 'totp-generator';
 import Card from 'react-bootstrap/Card';
+import Theme from '@/constants/theme';
 import Header from './Header'
 import Body from './Body'
-import { TOTP } from 'totp-generator';
-import Theme from '../../constants/theme';
 
 function CodeCard({ name, secret }) {
   if (!name || !secret) return null;

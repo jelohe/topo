@@ -1,4 +1,4 @@
-import Theme from '../../constants/theme'
+import Theme from '@/constants/theme'
 import Card from 'react-bootstrap/Card'
 
 function CodeCardBody({ code, timeLeft }) {

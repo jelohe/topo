@@ -1,7 +1,7 @@
 import Card from 'react-bootstrap/Card';
-import Theme from './../constants/theme';
+import Theme from '@/constants/theme';
 
-function AddCodeCard({ onClick }) {
+function AddButton({ onClick }) {
   const buttonStyle = { 
     backgroundColor: Theme.magenta,
     color: Theme.white,
@@ -23,4 +23,4 @@ function AddCodeCard({ onClick }) {
   );
 }
 
-export default AddCodeCard;
+export default AddButton;
