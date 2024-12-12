@@ -1,4 +1,3 @@
-import Button from 'react-bootstrap/Button';
 import { useLocalStorage } from '@uidotdev/usehooks'
 import { useNavigate } from 'react-router'
 import { Scanner } from '@yudiel/react-qr-scanner'
@@ -34,13 +33,6 @@ function AddPage() {
   return (
     <div className="App-header" style={{ backgroundColor: "#bcbcbc" }}>
       <Scanner onScan={handleScan} />
-      <Button 
-        variant="secondary"
-        style={{ marginTop: '12px' }}
-        onClick={() => navigate('/')}
-      >
-        Back
-      </Button>
     </div>
   );
 }

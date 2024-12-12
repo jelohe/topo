@@ -19,13 +19,8 @@ function ListPage() {
   return (
     <>
     <div className="App">
-      <div className="fixed-top" style={style}>
-        <CodeList secrets={secrets} />
-        <AddButton onClick={() => navigate('/add')} />
-      </div>
-      <div className="App-header" style={{ backgroundColor: Theme.gray14 }}>
-        <img src={logo} className="App-logo gradient" alt="logo" />
-      </div>
+      <CodeList secrets={secrets} />
+      <AddButton onClick={() => navigate('/add')} />
     </div>
     </>
   )
