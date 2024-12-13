@@ -16,18 +16,8 @@ function AddPage() {
     }
   }
 
-  function aggregateValid(secrets, uri) {
-    return ({...secrets, ...extractSecret(uri.rawValue)})
-  }
-
-  function extractSecret(uri) {
-    const params = new URLSearchParams(uri.split("?").pop())
-    const name = params.get('issuer')
-    const secret = params.get('secret')
-
-    return name && secret
-      ? { [name]: secret }
-      : {}
+  function aggregateValid(acc, uri) {
+    return ({...acc, ...extractSecret(uri.rawValue)})
   }
 
   return (
@@ -35,6 +25,16 @@ function AddPage() {
       <Scanner onScan={handleScan} />
     </div>
   );
+}
+
+export function extractSecret(uri) {
+  const params = new URLSearchParams(uri.split("?").pop())
+  const name = params.get('issuer')
+  const secret = params.get('secret')
+
+  return name && secret
+    ? { [name]: secret }
+    : {}
 }
 
 export default AddPage;
