@@ -7,7 +7,7 @@ describe('extractSecret from uri',() => {
 
   afterEach(cleanup)
 
-  it('returns nothing when provided an invalid URL', () => {
+  it('returns nothing when provided an invalid URI', () => {
     const invalidUri = 'www.test.web'
     expect(extractSecret(invalidUri)).toEqual({})
   })
@@ -22,14 +22,7 @@ describe('extractSecret from uri',() => {
     expect(extractSecret(invalidUri)).toEqual({})
   })
 
-  it('extracts a single secret', () => {
-    const validUri = `otpauth://totp/webpage?issuer=topo&secret=${secret}`
-    const validSecret = { topo: secret }
-
-    expect(extractSecret(validUri)).toEqual(validSecret)
-  })
-
-  it('extracts multiple secrets', () => {
+  it('extracts a secret', () => {
     const validUri = `otpauth://totp/webpage?issuer=topo&secret=${secret}`
     const validSecret = { topo: secret }
 
