@@ -26,7 +26,7 @@ function CodeCard({ name, secret }) {
       <div class="message-header is-size-5">
         <p>{name}</p>
       </div>
-      <button class="button is-fullwidth message-body">
+      <button onClick={toClip} class="button is-fullwidth message-body">
         <p className="is-size-2">{pretty}</p>
       </button>
     </article>
