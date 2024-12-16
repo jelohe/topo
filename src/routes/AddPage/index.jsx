@@ -23,7 +23,7 @@ function AddPage() {
   return (
     <>
       <h1 className="title">
-      Topo Authenticator
+      Topo Auth
       <button 
         onClick={() => navigate('/')}
         className="button is-pulled-right">back</button></h1>

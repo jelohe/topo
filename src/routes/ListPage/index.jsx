@@ -15,7 +15,7 @@ function ListPage() {
 
   return (
     <>
-      <h1 class="title">Topo Authenticator</h1>
+      <h1 class="title">Topo Auth</h1>
       <hr />
       <div class="content has-text-centered">
         <CodeList secrets={secrets} />
