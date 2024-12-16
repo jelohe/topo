@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
 import { TOTP } from 'totp-generator';
-import Card from 'react-bootstrap/Card';
-import Theme from '@/constants/theme';
-import Header from './Header'
-import Body from './Body'
 
 function CodeCard({ name, secret }) {
   if (!name || !secret) return null;
@@ -25,17 +21,15 @@ function CodeCard({ name, secret }) {
   const toClip = () => navigator.clipboard.writeText(code)
   const pretty = `${code.slice(0, 3)} ${code.slice(3)}`
 
-  const cardStyle = {
-    backgroundColor: Theme.gray15,
-    color: Theme.black,
-    cursor: 'alias'
-  };
-
   return (
-    <Card className="CodeCard m-3" style={cardStyle} onClick={toClip}>
-      <Header name={name} />
-      <Body code={pretty} />
-    </Card>
+    <article class="message">
+      <div class="message-header is-size-5">
+        <p>{name}</p>
+      </div>
+      <button class="button is-fullwidth message-body">
+        <p className="is-size-2">{pretty}</p>
+      </button>
+    </article>
   );
 }
 

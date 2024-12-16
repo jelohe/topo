@@ -1,6 +1,6 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, it, expect } from "vitest";
-import CodeCard from "./index";
+import CodeCard from "./CodeCard";
 
 describe('CodeCard component:',() => {
   const secret = "OQYHAM3U"; // t0p3t -> base32

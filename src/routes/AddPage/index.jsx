@@ -21,9 +21,14 @@ function AddPage() {
   }
 
   return (
-    <div className="App-header" style={{ backgroundColor: "#bcbcbc" }}>
+    <>
+      <h1 className="title">
+      Topo Authenticator
+      <button 
+        onClick={() => navigate('/')}
+        className="button is-pulled-right is-medium">back</button></h1>
       <Scanner onScan={handleScan} />
-    </div>
+    </>
   );
 }
 
