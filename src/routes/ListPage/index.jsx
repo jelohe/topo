@@ -16,10 +16,10 @@ function ListPage() {
   return (
     <>
       <h1 class="title">Topo Authenticator</h1>
+      <hr />
       <div class="content has-text-centered">
         <CodeList secrets={secrets} />
       </div>
-      <hr />
       <button
         onClick={() => navigate('/add')}
         class="button is-primary is-large is-fullwidth">+</button>

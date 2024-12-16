@@ -26,7 +26,8 @@ function AddPage() {
       Topo Authenticator
       <button 
         onClick={() => navigate('/')}
-        className="button is-pulled-right is-medium">back</button></h1>
+        className="button is-pulled-right">back</button></h1>
+      <hr />
       <Scanner onScan={handleScan} />
     </>
   );
