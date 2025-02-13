@@ -1,6 +1,12 @@
 @charset "UTF-8";
 /* Bulma Utilities */
-@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+@font-face {
+    font-family: Nunito;
+    src: url("fonts/Nunito-VariableFont_wght.ttf") format("ttf"),
+         url("fonts/Nunito-Italic-VariableFont_wght.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+}
 :root {
   --bulma-control-radius: var(--bulma-radius);
   --bulma-control-radius-small: var(--bulma-radius-small);
