@@ -4,7 +4,10 @@ import * as path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: 'https://topoauth.org',
+  base: '/',
+  build: {
+    assetsDir: 'static',
+  },
   test: {
     environment: 'happy-dom',
   },
