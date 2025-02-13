@@ -21554,4 +21554,8 @@ has-background-danger.is-hoverable:active {
   pointer-events: all !important;
 }
 
+.dud {
+  color: #757575;
+}
+
 /*# sourceMappingURL=topo.css.map */
