@@ -1,8 +1,6 @@
-import useVault from '@/useVault'
 import { useNavigate } from 'react-router'
 
 export default function Empty() {
-  const { vault, bulkInsert } = useVault()
   const navigate = useNavigate()
 
   return (
@@ -19,8 +17,12 @@ export default function Empty() {
           Secrets are usually provided as <span className="has-text-primary">QR Codes</span>. The safest backup for this secrets is to store a paper print of the QR or an image file in a safe digital storage.
         </p>
         <p>Start by scanning a QR code to store your first secret.</p>
-        <i className="fa-solid fa-qrcode"></i>
       </div>
+      <button
+          onClick={() => navigate('/add')}
+          className="button is-primary is-fullwidth">
+        <img src="/qr.svg" alt="qr-icon" width="35" height="35" />
+      </button>
     </>
   );
 }

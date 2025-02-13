@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import useVault from '@/useVault';
 import { TOTP } from 'totp-generator';
+import Empty from './Empty';
 import CodeCard from './CodeCard'
 
 const CYCLE_S = 30
@@ -26,6 +27,10 @@ export default function List() {
   const { vault } = useVault();
   const [codes, setCodes] = useState(generateCodes(vault));
   const [elapsedMs, setElapsed] = useState(0)
+
+  if (Object.entries(vault).length <= 0) {
+    return (<Empty />)
+  }
 
   const navigate = useNavigate()
 
@@ -66,8 +71,10 @@ export default function List() {
         }
       </div>
       <button
-        onClick={() => navigate('/add')}
-        className="button is-primary is-fullwidth">+</button>
+          onClick={() => navigate('/add')}
+          className="button is-primary is-fullwidth">
+        <img src="/qr.svg" alt="qr-icon" width="35" height="35" />
+      </button>
     </>
   )
 }
