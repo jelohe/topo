@@ -1,7 +1,15 @@
 import { useNavigate } from 'react-router'
+import { useState, useEffect } from 'react';
+import TextScramble from '@/lib/textScramble';
 
 export default function Empty() {
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const el = document.querySelector('.neo');
+    const fx = new TextScramble(el);
+    fx.setText("326 629");
+  });
 
   return (
     <>
@@ -23,6 +31,8 @@ export default function Empty() {
           className="button is-primary is-fullwidth">
         <img src="/images/qr.svg" alt="qr-icon" width="35" height="35" />
       </button>
+      <p className="neo">
+      </p>
     </>
   );
 }
