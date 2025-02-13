@@ -21,7 +21,7 @@ export default function Empty() {
       <button
           onClick={() => navigate('/add')}
           className="button is-primary is-fullwidth">
-        <img src="/qr.svg" alt="qr-icon" width="35" height="35" />
+        <img src="/images/qr.svg" alt="qr-icon" width="35" height="35" />
       </button>
     </>
   );

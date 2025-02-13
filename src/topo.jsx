@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import List from '@/routes/List';
 import Add from '@/routes/Add';
+import '../css/topo.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
