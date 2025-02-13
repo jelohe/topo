@@ -10,14 +10,13 @@
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "build-bulma": "sass --load-path=node_modules topo.scss topo.css",
+    "build-bulma": "sass --load-path=node_modules css/topo.scss css/topo.css",
     "start": "npm run build-bulma -- --watch"
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",
     "@yudiel/react-qr-scanner": "^2.0.8",
     "bulma": "^1.0.2",
-    "react-bootstrap": "^2.10.6",
     "react-dom": "^18.3.1",
     "react-router": "^7.0.2",
     "totp-generator": "^1.0.0"

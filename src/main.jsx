@@ -1,17 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router'
-import ListPage from './routes/ListPage'
-import AddPage from './routes/AddPage'
-
-import '../topo.css'
+import List from '@/routes/List';
+import Add from '@/routes/Add';
+import Empty from '@/routes/Empty';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/"    element={<ListPage />} />
-        <Route path="/add" element={<AddPage />} />
+        <Route path="/"    element={<Empty />} />
+        <Route path="/add" element={<Add />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

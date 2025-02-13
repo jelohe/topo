@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import useVault from '@/vault';
+import useVault from '@/useVault';
 import { TOTP } from 'totp-generator';
-import CodeCard from './components/CodeCard'
+import CodeCard from './CodeCard'
 
 const CYCLE_S = 30
 const CYCLE_MS = CYCLE_S * 1000
@@ -22,7 +22,7 @@ function generateCodes(vault) {
   return Object.fromEntries(rawCodes)
 }
 
-function ListPage() {
+export default function List() {
   const { vault } = useVault();
   const [codes, setCodes] = useState(generateCodes(vault));
   const [elapsedMs, setElapsed] = useState(0)
@@ -71,5 +71,3 @@ function ListPage() {
     </>
   )
 }
-
-export default ListPage

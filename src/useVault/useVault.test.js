@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import useVault from './vault.js';
+import useVault from './useVault.js';
 
 describe('vault storage',() => {
   const testSecretOne = "OQYHAM3U"
