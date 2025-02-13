@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router'
-import { useLocalStorage } from '@uidotdev/usehooks'
+import { useNavigate } from 'react-router';
+import useVault from '@/vault';
 import { TOTP } from 'totp-generator';
 import CodeCard from './components/CodeCard'
 
@@ -8,7 +8,7 @@ const CYCLE_S = 30
 const CYCLE_MS = CYCLE_S * 1000
 const ANIMATION_INTERVAL_MS = 20
 
-function generateCodes(secrets) {
+function generateCodes(vault) {
   function generateRawCode(secret) {
     const config = { encoding: 'ascii', period: CYCLE_S }
     const { otp } = TOTP.generate(secret, config)
@@ -16,15 +16,15 @@ function generateCodes(secrets) {
   }
 
   const rawCodes = Object
-    .entries(secrets)
+    .entries(vault)
     .map(([k, v]) => [k, generateRawCode(v)])
 
   return Object.fromEntries(rawCodes)
 }
 
 function ListPage() {
-  const [secrets] = useLocalStorage("secrets", "")
-  const [codes, setCodes] = useState(generateCodes(secrets));
+  const { vault } = useVault();
+  const [codes, setCodes] = useState(generateCodes(vault));
   const [elapsedMs, setElapsed] = useState(0)
 
   const navigate = useNavigate()
@@ -34,7 +34,7 @@ function ListPage() {
       let next = prev + ANIMATION_INTERVAL_MS
 
       if (prev >= CYCLE_MS) {
-        setCodes(generateCodes(secrets))
+        setCodes(generateCodes(vault))
         next = 0
       }
 
@@ -43,7 +43,7 @@ function ListPage() {
 
     const id = setInterval(frame, ANIMATION_INTERVAL_MS)
     return () => clearInterval(id)
-  }, [secrets])
+  }, [vault])
 
   return (
     <>
