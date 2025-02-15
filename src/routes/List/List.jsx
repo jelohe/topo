@@ -52,14 +52,17 @@ export default function List() {
 
   return (
     <>
-      <h1 className="title">Topo Auth</h1>
-      <hr />
-
       <progress 
-        className="progress is-small is-primary" 
+        className="progress time-bar is-primary" 
         value={elapsedMs}
         max={CYCLE_MS}
       />
+
+      <h1 className="title">
+        <img src="/images/logo.svg" alt="qr-icon" width="35" height="35" />
+        <span className="ml-2">Topo Auth</span>
+      </h1>
+      <hr />
 
       <div className="content has-text-centered">
         {

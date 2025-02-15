@@ -7,9 +7,9 @@ export default function Empty() {
   return (
     <>
       <h1 className="title">
-        Topo Auth
+        <img src="/images/logo.svg" alt="qr-icon" width="35" height="35" />
+        <span className="ml-2">Topo Auth</span>
       </h1>
-      <hr/>
       <div className="content is-medium">
         <p>
           Topo allows you to store <span className="has-text-primary">Secrets</span> and generate temporary access <span className="has-text-primary">Codes</span> for two factor authentication.

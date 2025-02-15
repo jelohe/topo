@@ -21558,4 +21558,12 @@ has-background-danger.is-hoverable:active {
   color: #757575;
 }
 
+.time-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    height: 2px;
+}
+
 /*# sourceMappingURL=topo.css.map */

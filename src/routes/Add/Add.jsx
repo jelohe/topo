@@ -13,7 +13,8 @@ export default function Add() {
   return (
     <>
       <h1 className="title">
-      Topo Auth
+      <img src="/images/logo.svg" alt="qr-icon" width="35" height="35" />
+      <span className="ml-2">Topo Auth</span>
       <button 
         onClick={() => navigate('/')}
         className="button is-pulled-right">back</button></h1>
