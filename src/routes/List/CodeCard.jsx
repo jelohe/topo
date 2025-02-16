@@ -8,14 +8,16 @@ function CodeCard({ name, code }) {
 
   const pretty = `${code.slice(0, 3)} ${code.slice(3)}`
   const toClip = () => {
-    const fx = new TextScramble(el.current);
-    fx.setText("Copied!");
-    setTimeout(() => fx.setText(pretty), 3000);
+    navigator.clipboard.writeText(code);
+
+    const textAnimation = new TextScramble(el.current);
+    textAnimation.setText("Copied!");
+    setTimeout(() => textAnimation.setText(pretty), 3000);
   }
 
   useEffect(() => {
-    const fx = new TextScramble(el.current);
-    fx.setText(pretty);
+    const textAnimation = new TextScramble(el.current);
+    textAnimation.setText(pretty);
   }, [pretty])
 
   return (

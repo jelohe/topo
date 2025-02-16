@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router';
 import useVault from '@/useVault';
 import { TOTP } from 'totp-generator';
 import Empty from './Empty';
-import CodeCard from './CodeCard'
+import CodeCard from './CodeCard';
+import Header from '@/Header';
 
 const CYCLE_S = 30
 const CYCLE_MS = CYCLE_S * 1000
@@ -58,11 +59,13 @@ export default function List() {
         max={CYCLE_MS}
       />
 
-      <h1 className="title">
-        <img src="/images/logo.svg" alt="qr-icon" width="35" height="35" />
-        <span className="ml-2">Topo Auth</span>
-      </h1>
-      <hr />
+      <Header>
+        <button
+          onClick={() => navigate('/add')}
+          className="button is-primary is-fullwidth">
+            <img src="/images/qr.svg" alt="qr-icon" width="20" height="20" />
+        </button>
+      </Header>
 
       <div className="content has-text-centered">
         {
@@ -73,11 +76,6 @@ export default function List() {
           ))
         }
       </div>
-      <button
-          onClick={() => navigate('/add')}
-          className="button is-primary is-fullwidth">
-        <img src="/images/qr.svg" alt="qr-icon" width="35" height="35" />
-      </button>
     </>
   )
 }

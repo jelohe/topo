@@ -1,10 +1,11 @@
-import useVault from '@/useVault'
-import { useNavigate } from 'react-router'
-import { Scanner } from '@yudiel/react-qr-scanner'
+import { useNavigate } from 'react-router';
+import { Scanner } from '@yudiel/react-qr-scanner';
+import Header from '@/Header';
+import useVault from '@/useVault';
 
 export default function Add() {
-  const { vault, bulkInsert } = useVault()
-  const navigate = useNavigate()
+  const { vault, bulkInsert } = useVault();
+  const navigate = useNavigate();
 
   function handleScan(uris) {
     if (bulkInsert(uris)) navigate('/');
@@ -12,13 +13,12 @@ export default function Add() {
 
   return (
     <>
-      <h1 className="title">
-      <img src="/images/logo.svg" alt="qr-icon" width="35" height="35" />
-      <span className="ml-2">Topo Auth</span>
-      <button 
-        onClick={() => navigate('/')}
-        className="button is-pulled-right">back</button></h1>
-      <hr />
+      <Header>
+        <button onClick={() => navigate('/')} className="button">
+            back
+        </button>
+      </Header>
+
       <Scanner onScan={handleScan} />
     </>
   );
