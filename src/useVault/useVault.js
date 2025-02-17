@@ -1,6 +1,6 @@
 import { useLocalStorage } from '@uidotdev/usehooks'
 
-function useVault() {
+export default function useVault() {
   const [vault, setVault] = useLocalStorage('secrets', {});
 
   function update(key, value) {
@@ -33,5 +33,3 @@ export function extractFromUri(uri) {
     ? { [name]: secret }
     : {}
 }
-
-export default useVault;

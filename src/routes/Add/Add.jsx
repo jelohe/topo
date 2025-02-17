@@ -4,7 +4,7 @@ import Header from '@/Header';
 import useVault from '@/useVault';
 
 export default function Add() {
-  const { vault, bulkInsert } = useVault();
+  const { bulkInsert } = useVault();
   const navigate = useNavigate();
 
   function handleScan(uris) {

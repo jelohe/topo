@@ -27,13 +27,9 @@ function generateCodes(vault) {
 export default function List() {
   const { vault } = useVault();
   const [codes, setCodes] = useState(generateCodes(vault));
+  const navigate = useNavigate()
   const [elapsedMs, setElapsed] = useState(0)
 
-  if (Object.entries(vault).length <= 0) {
-    return (<Empty />)
-  }
-
-  const navigate = useNavigate()
 
   useEffect(() => {
     const frame = () => setElapsed(prev => {
@@ -50,6 +46,10 @@ export default function List() {
     const id = setInterval(frame, ANIMATION_INTERVAL_MS)
     return () => clearInterval(id)
   }, [vault])
+
+  if (Object.entries(vault).length <= 0) {
+    return (<Empty />)
+  }
 
   return (
     <>

@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router'
-import { useState, useEffect } from 'react';
 import Header from '@/Header';
 
 export default function Empty() {

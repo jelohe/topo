@@ -1,9 +1,7 @@
-import { useRef, useState, useEffect } from 'react';
-import { TOTP } from 'totp-generator';
+import { useRef, useEffect } from 'react';
 import TextScramble from '@/lib/textScramble';
 
 function CodeCard({ name, code }) {
-  if (!name || !code) return null;
   const el = useRef(null);
 
   const pretty = `${code.slice(0, 3)} ${code.slice(3)}`
@@ -20,6 +18,7 @@ function CodeCard({ name, code }) {
     textAnimation.setText(pretty);
   }, [pretty])
 
+  if (!name || !code) return null;
   return (
     <>
       <article className="is-fullwidth message is-clickable">
