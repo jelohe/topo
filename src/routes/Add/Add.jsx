@@ -4,11 +4,11 @@ import Header from '@/Header';
 import useVault from '@/useVault';
 
 export default function Add() {
-  const { bulkInsert } = useVault();
+  const { bulkUpdate } = useVault();
   const navigate = useNavigate();
 
   function handleScan(uris) {
-    if (bulkInsert(uris)) navigate('/');
+    if (bulkUpdate(uris)) navigate('/');
   }
 
   return (

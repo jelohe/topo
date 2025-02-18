@@ -10,6 +10,8 @@
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
+    "cypress:open": "cypress open --browser chrome",
+    "cypress:run": "cypress run --browser chrome",
     "build-bulma": "sass --load-path=node_modules css/topo.scss css/topo.css",
     "start": "npm run build-bulma -- --watch"
   },
@@ -27,6 +29,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "cypress": "^14.1.0",
     "eslint": "^9.20.1",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
