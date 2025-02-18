@@ -10,7 +10,7 @@ export default function useVault() {
   function bulkUpdate(uris) {
     const scannedSecrets = uris.reduce(aggregateValid, {}) 
     function aggregateValid(acc, uri) {
-      return ({...acc, ...extractFromUri(uri)})
+      return ({...acc, ...extractFromUri(uri.rawValue)})
     }
     const hasScannedSecrets = Object.keys(scannedSecrets).length
 

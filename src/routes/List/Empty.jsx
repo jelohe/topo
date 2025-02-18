@@ -17,6 +17,7 @@ export default function Empty() {
         <p>Start by scanning a QR code to store your first secret.</p>
       </div>
       <button
+          data-testid="add-button"
           onClick={() => navigate('/add')}
           className="button is-primary is-fullwidth">
         <img src="/images/qr.svg" alt="qr-icon" width="35" height="35" />

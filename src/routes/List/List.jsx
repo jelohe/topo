@@ -61,6 +61,7 @@ export default function List() {
 
       <Header>
         <button
+          data-testid="add-button"
           onClick={() => navigate('/add')}
           className="button is-primary is-fullwidth">
             <img src="/images/qr.svg" alt="qr-icon" width="20" height="20" />
