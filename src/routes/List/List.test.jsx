@@ -17,6 +17,7 @@ describe('when vault is empty', () => {
     expect(textElements.length).toBeGreaterThan(0);
     textElements = await screen.queryAllByText(/secrets/i);
     expect(textElements.length).toBeGreaterThan(0);
+    expect(true).toBe(false);
   });
 
   it('provides a button to scan secrets', async () => {
