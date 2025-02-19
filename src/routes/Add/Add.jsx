@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router';
 import { Scanner } from '@yudiel/react-qr-scanner';
-import Header from '@/Header';
+import Header from '@/components/Header';
 import useVault from '@/useVault';
 
 export default function Add() {
