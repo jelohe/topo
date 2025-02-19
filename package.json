@@ -9,9 +9,9 @@
     "lint": "eslint ./src",
     "preview": "vite preview",
     "test": "vitest",
-    "coverage": "vitest run --coverage",
+    "ci": "vitest run",
     "build-bulma": "sass --load-path=node_modules css/topo.scss css/topo.css",
-    "start": "npm run build-bulma -- --watch"
+    "start-bulma": "npm run build-bulma -- --watch"
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",
