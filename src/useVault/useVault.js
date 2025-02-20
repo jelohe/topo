@@ -3,25 +3,27 @@ import { useLocalStorage } from '@uidotdev/usehooks'
 export default function useVault() {
   const [vault, setVault] = useLocalStorage('secrets', {});
 
-  function update(key, value) {
-    setVault({ ...vault, [key]: value })
-  }
+  return {
+    vault,
 
-  function bulkUpdate(uris) {
-    const scannedSecrets = uris.reduce(aggregateValid, {}) 
-    function aggregateValid(acc, uri) {
-      return ({...acc, ...extractFromUri(uri.rawValue)})
-    }
-    const hasScannedSecrets = Object.keys(scannedSecrets).length
+    update: function(key, value) {
+      setVault({ ...vault, [key]: value })
+    },
 
-    if (hasScannedSecrets) {
-      setVault({ ...vault, ...scannedSecrets })
-    }
+    bulkUpdate: function(uris) {
+      const scannedSecrets = uris.reduce(aggregateValid, {}) 
+      function aggregateValid(acc, uri) {
+        return ({...acc, ...extractFromUri(uri.rawValue)})
+      }
+      const hasScannedSecrets = Object.keys(scannedSecrets).length
 
-    return hasScannedSecrets;
-  }
+      if (hasScannedSecrets) {
+        setVault({ ...vault, ...scannedSecrets })
+      }
 
-  return { vault, update, bulkUpdate }
+      return hasScannedSecrets;
+    },
+  };
 }
 
 export function extractFromUri(uri) {
