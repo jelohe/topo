@@ -11,22 +11,26 @@ export default function useVault() {
     },
 
     bulkUpdate: function(uris) {
-      const scannedSecrets = uris.reduce(aggregateValid, {}) 
-      function aggregateValid(acc, uri) {
-        return ({...acc, ...extractFromUri(uri.rawValue)})
-      }
-      const hasScannedSecrets = Object.keys(scannedSecrets).length
+      const scannedSecrets = uris.reduce((acc, uri) => (
+        { ...acc, ...extractFromUri(uri.rawValue) }
+      ), {});
 
-      if (hasScannedSecrets) {
+      const hasScannedSecrets = Object.keys(scannedSecrets).length;
+      if (hasScannedSecrets) 
         setVault({ ...vault, ...scannedSecrets })
-      }
 
       return hasScannedSecrets;
+    },
+
+    remove: function(secretName) {
+      const newVault = { ...vault };
+      delete(newVault[secretName]);
+      setVault(newVault);
     },
   };
 }
 
-export function extractFromUri(uri) {
+function extractFromUri(uri) {
   const params = new URLSearchParams(uri.split("?").pop())
   const name = params.get('issuer')
   const secret = params.get('secret')

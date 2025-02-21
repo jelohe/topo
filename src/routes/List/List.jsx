@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
 import useVault from '@/useVault';
 import { TOTP } from 'totp-generator';
 import Empty from './components/Empty';
@@ -26,7 +25,7 @@ export default function List() {
       }
 
       return next;
-    })
+    });
 
     const id = setInterval(frame, ANIMATION_INTERVAL_MS);
     return () => clearInterval(id);
@@ -59,7 +58,7 @@ export default function List() {
 
 function generateCodes(vault) {
   const rawCodes = Object.entries(vault)
-    .map(([k, v]) => [k, generateRawCode(v)]);
+    .map(([name, secret]) => [name, generateRawCode(secret)]);
  
   return Object.fromEntries(rawCodes);
 }

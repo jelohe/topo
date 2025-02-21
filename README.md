@@ -12,14 +12,14 @@
 [TOTP](https://datatracker.ietf.org/doc/html/rfc6238) is a standard for generating temporary access codes. The idea is that a service provides you with a `secret` that you can store to create temporary access `codes` using an Authenticator app like Topo.
 When you want to login to the service you will have to provide your credentials and a fresh temporary code.
 
-But:
+But,
 
-Each website promotes its own authenticator, scattering user secrets across multiple applications.
+each website promotes its own authenticator, scattering user secrets across multiple applications.
 Popular authenticators include ads, sends user data over the internet or requires unnecessary permissions.
 
-So:
+So,
 
-The idea behind Topo is to have a free, simple and lightweight authenticator that respects privacy and security.
+the idea behind Topo is to have a free, simple and lightweight authenticator that respects privacy and security.
 
 
 ## Limitations
@@ -51,6 +51,15 @@ You need `nodejs` and a dependency manager like `npm`.
 * `npm i` install all dependencies.
 * `npm run dev` run a local development server.
 * `npm run build` create a production build inside `./dist`.
-* `npm run preview` create a preview server with the current `./dist` content.
-* `npm run test` run interactive tests.
-* `npm run ci` run whole test suite once.
+* `npm run preview` run a server serving `./dist` content.
+* `npm run test` interactive testing.
+* `npm run ci` run all tests.
+
+
+## Wishlist
+
+[ ] Button to export a secret QR as an image file.
+[ ] Button to import a QR code image file.
+[ ] Button to install Topo as a [progressive webapp](https://en.wikipedia.org/wiki/Progressive_web_app). [More info](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/How_to/Trigger_install_prompt).
+[ ] [A11y](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
+[ ] Landing page teaching good security practices about 2fa linking to Topo.

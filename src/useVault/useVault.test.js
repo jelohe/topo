@@ -1,10 +1,14 @@
 import { renderHook, act } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { beforeEach, describe, it, expect } from "vitest";
 import useVault from './useVault.js';
 
 describe('vault storage',() => {
   const topoSecret = "OQYHAM3U"
   const topeteSecret = "ORSXG5A="
+
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
 
   it('stores a secret on an empty vault', () => {
     const { result } = renderHook(useVault);
@@ -44,4 +48,16 @@ describe('vault storage',() => {
     };
     expect(result.current.vault).toEqual(expectedVault);
   });
-})
+
+  it('removes a secret from the vault', () => {
+    const vault = JSON.stringify({ topo: topoSecret });
+    window.localStorage.setItem('secrets', vault);
+    const { result } = renderHook(useVault);
+
+    act(() => {
+      result.current.remove('topo');
+    });
+
+    expect(result.current.vault).toEqual({});
+  });
+});
