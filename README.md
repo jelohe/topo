@@ -55,11 +55,3 @@ You need `nodejs` and a dependency manager like `npm`.
 * `npm run test` interactive testing.
 * `npm run ci` run all tests.
 
-
-## Wishlist
-
-[ ] Button to export a secret QR as an image file.
-[ ] Button to import a QR code image file.
-[ ] Button to install Topo as a [progressive webapp](https://en.wikipedia.org/wiki/Progressive_web_app). [More info](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/How_to/Trigger_install_prompt).
-[ ] [A11y](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
-[ ] Landing page teaching good security practices about 2fa linking to Topo.
