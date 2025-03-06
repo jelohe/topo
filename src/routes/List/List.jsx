@@ -1,14 +1,29 @@
 import { useState, useEffect } from 'react';
-import useVault from '@/useVault';
+import { useNavigate } from 'react-router';
 import { TOTP } from 'totp-generator';
+import useVault from '@/useVault';
 import Empty from './components/Empty';
 import CodeCard from './components/CodeCard';
-import BackButton from './components/BackButton';
 import Header from '@/components/Header';
 
 const CYCLE_S = 30;
 const CYCLE_MS = CYCLE_S * 1000;
 const ANIMATION_INTERVAL_MS = 20;
+
+function CustomHeader() {
+  const navigate = useNavigate();
+  return (
+    <Header>
+      <button
+        onClick={() => navigate('/add')}
+        className="button is-primary is-fullwidth"
+      >
+        <img src="/images/qr.svg" alt="qr-icon" width="20" height="20" />
+      </button>
+    </Header>
+  );
+}
+
 
 export default function List() {
   const { vault } = useVault();
@@ -42,8 +57,7 @@ export default function List() {
         value={elapsedMs}
         max={CYCLE_MS}
       />
-
-      <Header><BackButton /></Header>
+      <CustomHeader />
 
       <div className="content has-text-centered">
         {
