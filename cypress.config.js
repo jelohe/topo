@@ -6,7 +6,7 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       on('before:browser:launch', (browser = {}, launchOptions) => {
         launchOptions.args.push(
-          '--use-file-for-fake-video-capture=cypress/fixtures/badqr.mjpeg'
+          '--use-file-for-fake-video-capture=cypress/fixtures/topo-qr.mjpeg'
         )
 
         return launchOptions;

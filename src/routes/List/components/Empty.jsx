@@ -18,6 +18,7 @@ export default function Empty() {
       </div>
       <button
           onClick={() => navigate('/add')}
+          data-testid="scan-first-qr"
           className="button is-primary is-fullwidth">
         <img src="/images/qr.svg" alt="qr-icon" width="35" height="35" />
       </button>
