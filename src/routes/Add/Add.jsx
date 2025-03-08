@@ -1,24 +1,24 @@
 import { useNavigate } from 'react-router';
-import { Scanner } from '@yudiel/react-qr-scanner';
 import Header from '@/components/Header';
 import useVault from '@/useVault';
+import Scanner from './components/Scanner';
 
 export default function Add() {
   const { bulkUpdate } = useVault();
   const navigate = useNavigate();
 
   function handleScan(uris) {
-    if (bulkUpdate(uris)) navigate('/');
+    const somethingUpdated = bulkUpdate(uris);
+    if (somethingUpdated) navigate('/');
   }
 
   return (
     <>
       <Header>
         <button onClick={() => navigate('/')} className="button">
-            back
+          back
         </button>
       </Header>
-
       <Scanner onScan={handleScan} />
     </>
   );

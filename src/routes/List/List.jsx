@@ -3,7 +3,7 @@ import useVault from '@/useVault';
 import { TOTP } from 'totp-generator';
 import Empty from './components/Empty';
 import CodeCard from './components/CodeCard';
-import BackButton from './components/BackButton';
+import AddButton from './components/AddButton';
 import Header from '@/components/Header';
 
 const CYCLE_S = 30;
@@ -43,7 +43,7 @@ export default function List() {
         max={CYCLE_MS}
       />
 
-      <Header><BackButton /></Header>
+      <Header><AddButton /></Header>
 
       <div className="content has-text-centered">
         {
