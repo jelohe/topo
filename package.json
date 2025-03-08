@@ -8,12 +8,12 @@
     "build": "vite build",
     "lint": "eslint ./src",
     "preview": "vite preview",
-    "test": "vitest",
-    "ci": "vitest run",
-    "cypress:open": "cypress open --browser=chrome",
-    "cypress:run": "cypress run --browser=chrome",
-    "build-bulma": "sass --load-path=node_modules css/topo.scss css/topo.css",
-    "start-bulma": "npm run build-bulma -- --watch"
+    "test:watch": "vitest",
+    "test:run": "vitest run",
+    "e2e:open": "cypress open --browser=chrome",
+    "e2e:run": "cypress run --browser=chrome",
+    "bulma:build": "sass --load-path=node_modules css/topo.scss css/topo.css",
+    "bulma:start": "npm run build-bulma -- --watch"
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",

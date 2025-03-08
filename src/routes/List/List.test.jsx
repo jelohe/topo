@@ -72,4 +72,18 @@ describe('when vault has secrets', () => {
       expect(codes.length).toBe(2);
     })
   });
+
+  it('provides a button to scan secrets', async () => {
+    const vault = { topo: 'toposecret', topete: 'topetesecret' }
+    window.localStorage.setItem('secrets', JSON.stringify(vault));
+    const { getByRole } = render(
+      <BrowserRouter>
+        <List />
+      </BrowserRouter>
+    );
+
+    await fireEvent.click(getByRole('button'))
+
+    expect(window.location.pathname).toBe('/add');
+  });
 });
