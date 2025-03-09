@@ -21571,12 +21571,43 @@ has-background-danger.is-hoverable:active {
 }
 
 .scanner {
+  border: 10px solid #af005f;
+}
+
+.scanner {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.scanner-loading {
+  border: 10px solid #1F2229;
+  padding: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scanner-error {
+  border: 10px solid #1F2229;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=topo.css.map */

@@ -16,9 +16,10 @@ describe('qr scanner', () => {
 
   it('when all goes well shows the video feed', async () => {
     navigator.mediaDevices = {};
-    const getVideoTracks = vi.fn();
-    const streamMock = new MediaStream({ getVideoTracks })
-    streamMock.getTracks = vi.fn(() => []);
+    const streamMock = { 
+      getVideoTracks: vi.fn(() => []),
+      getTracks: vi.fn(() => []),
+    };
     navigator.mediaDevices.getUserMedia = vi.fn().mockResolvedValue(streamMock);
 
     const { container } = render(<Scanner />);
