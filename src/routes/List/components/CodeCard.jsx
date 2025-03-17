@@ -7,11 +7,11 @@ function CodeCard({ name, code }) {
   if (!name || !code) return null;
   return (
     <>
-      <article className="is-fullwidth message is-clickable">
-        <div className="message-header is-size-5">
+      <article className="card-wrapper">
+        <div className="card-header">
           <p>{name}</p>
         </div>
-        <div onClick={toClip} className="message-body">
+        <div onClick={toClip} className="card-body">
           <p className="is-size-2">{pretty}</p>
         </div>
       </article>

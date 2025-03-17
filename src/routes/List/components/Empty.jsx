@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router'
-import Header from '@/components/Header';
+import Header from '@/Header';
 
 export default function Empty() {
   const navigate = useNavigate()

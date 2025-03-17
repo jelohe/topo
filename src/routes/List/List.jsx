@@ -4,7 +4,7 @@ import { TOTP } from 'totp-generator';
 import Empty from './components/Empty';
 import CodeCard from './components/CodeCard';
 import AddButton from './components/AddButton';
-import Header from '@/components/Header';
+import Header from '@/Header';
 
 const CYCLE_S = 30;
 const CYCLE_MS = CYCLE_S * 1000;
@@ -38,14 +38,14 @@ export default function List() {
   return (
     <>
       <progress 
-        className="progress time-bar is-primary" 
+        className="time-bar" 
         value={elapsedMs}
         max={CYCLE_MS}
       />
 
       <Header><AddButton /></Header>
 
-      <div className="content has-text-centered">
+      <div>
         {
           Object.entries(codes).map(([name, code]) => (
             <CodeCard name={name} key={name} code={code} />

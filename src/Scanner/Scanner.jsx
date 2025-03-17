@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import { BarcodeDetector } from 'barcode-detector';
+import { openCamera, detectQrCodes } from './camera';
 
-export default function Scanner({ onScan = noop }) {
+const defaultOnScan = () => {};
+export default function Scanner({ onScan = defaultOnScan }) {
   const videoEl = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAvailable, setIsAvailable] = useState(true);
@@ -26,8 +27,8 @@ export default function Scanner({ onScan = noop }) {
 
   return (
     <div className="scanner-wrapper">
-      <Loading renderIf={isLoading} />
-      <Error renderIf={isUnavailable} />
+      {isLoading && <Loading />}
+      {isUnavailable && <Error />}
       <video 
         className={`scanner ${isReady ? '': 'is-hidden'}`}
         ref={videoEl}
@@ -38,8 +39,7 @@ export default function Scanner({ onScan = noop }) {
   );
 }
 
-function Loading({ renderIf }) {
-  if (!renderIf) return null;
+function Loading() {
   return (
     <div data-testid="loading" className="scanner-loading">
       <img src="images/spinner.svg" />
@@ -47,8 +47,7 @@ function Loading({ renderIf }) {
   );
 }
 
-function Error({ renderIf }) {
-  if (!renderIf) return null;
+function Error() {
   return (
     <div
       data-testid="error"
@@ -58,34 +57,3 @@ function Error({ renderIf }) {
     </div>
   );
 }
-
-function openCamera(el) {
-  return new Promise((resolve, reject) => {
-    const config = {
-      video: {
-        facingMode: { ideal: 'environment' },
-      },
-    };
-
-    navigator
-      .mediaDevices
-      .getUserMedia(config)
-      .then(stream => {
-        el.srcObject = stream;
-        el.onplaying = () => resolve(el);
-      })
-      .catch(err => {
-        console.log(err);
-        reject(err)
-      });
-  });
-}
-
-function detectQrCodes(el) {
-  const config = { formats: ["qr_code"], };
-  const barcodeDetector = new BarcodeDetector(config);
-  return barcodeDetector.detect(el);
-};
-
-const noop = () => {};
-
