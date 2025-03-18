@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import useVault from '@/useVault';
+import { useNavigate } from 'react-router';
 import { TOTP } from 'totp-generator';
 import Empty from './components/Empty';
 import CodeCard from './components/CodeCard';
-import AddButton from './components/AddButton';
 import Header from '@/Header';
 
 const CYCLE_S = 30;
@@ -11,6 +11,7 @@ const CYCLE_MS = CYCLE_S * 1000;
 const ANIMATION_INTERVAL_MS = 20;
 
 export default function List() {
+  const navigate = useNavigate();
   const { vault } = useVault();
   const [codes, setCodes] = useState(generateCodes(vault));
   const [elapsedMs, setElapsed] = useState(0);
@@ -43,7 +44,11 @@ export default function List() {
         max={CYCLE_MS}
       />
 
-      <Header><AddButton /></Header>
+      <Header>
+        <button onClick={() => navigate('/add')} className="add-qr-button">
+          <img src="/images/qr.svg" alt="qr-icon" width="20" height="20" />
+        </button>
+      </Header>
 
       <div>
         {

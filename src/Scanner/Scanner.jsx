@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { openCamera, detectQrCodes } from './camera';
+import camera from './camera';
 
 const defaultOnScan = () => {};
 export default function Scanner({ onScan = defaultOnScan }) {
@@ -9,8 +9,8 @@ export default function Scanner({ onScan = defaultOnScan }) {
 
   useEffect(() => {
     const el = videoEl.current;
-    openCamera(el)
-      .then(el => detectQrCodes(el))
+    camera.open(el)
+      .then(el => camera.scan(el))
       .then(uris => onScan(uris))
       .catch(() => setIsAvailable(false))
       .finally(() => setIsLoading(false));
@@ -41,7 +41,7 @@ export default function Scanner({ onScan = defaultOnScan }) {
 
 function Loading() {
   return (
-    <div data-testid="loading" className="scanner-loading">
+    <div className="scanner-loading">
       <img src="images/spinner.svg" />
     </div>
   );
@@ -49,11 +49,9 @@ function Loading() {
 
 function Error() {
   return (
-    <div
-      data-testid="error"
-      className="scanner-error content is-large"
-    >
-      <p>Topo cant access your <span className="has-text-primary">camera</span>, check your device <span className="has-text-primary">permissions</span></p>
+    <div className="scanner-error">
+      <p>Topo cant access your <span className="highlight">camera</span></p>
+      <p>Check your device <span className="highlight">permissions</span></p>
     </div>
   );
 }

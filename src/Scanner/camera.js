@@ -1,6 +1,6 @@
 import { BarcodeDetector } from 'barcode-detector';
 
-export function openCamera(el) {
+function open(el) {
   return new Promise((resolve, reject) => {
     const config = {
       video: {
@@ -22,8 +22,10 @@ export function openCamera(el) {
   });
 }
 
-export function detectQrCodes(el) {
+function scan(el) {
   const config = { formats: ["qr_code"], };
   const barcodeDetector = new BarcodeDetector(config);
   return barcodeDetector.detect(el);
-};
+}
+
+export default { open, scan };

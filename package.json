@@ -11,13 +11,10 @@
     "test:watch": "vitest",
     "test:run": "vitest run",
     "e2e:open": "cypress open --browser=chrome",
-    "e2e:run": "cypress run --browser=chrome",
-    "bulma:build": "sass --load-path=node_modules css/topo.scss css/topo.css",
-    "bulma:start": "npm run build-bulma -- --watch"
+    "e2e:run": "cypress run --browser=chrome"
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",
-    "bulma": "^1.0.2",
     "react-dom": "^18.3.1",
     "react-router": "^7.0.2",
     "totp-generator": "^1.0.0"

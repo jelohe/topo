@@ -1,8 +1,0 @@
-$purple: #8a4d76;
-$magenta: #af005f;
-
-@use "bulma/sass" with (
-  $family-primary: '"Nunito", sans-serif',
-  $primary: $magenta,
-  $box-shadow: 0
-);
