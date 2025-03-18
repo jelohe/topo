@@ -2,7 +2,7 @@ import { useState } from 'react';
 import useVault from '@/useVault';
 import { useNavigate } from 'react-router';
 import { TOTP } from 'totp-generator';
-import Empty from './components/Empty';
+import FirstUse from './components/FirstUse';
 import CodeCard from './components/CodeCard';
 import Timebar from './components/Timebar';
 import Header from '@/Header';
@@ -15,7 +15,7 @@ export default function List() {
   const [codes, setCodes] = useState(generateCodes(vault));
 
   const hasSecrets = Object.entries(vault).length > 0;
-  if (!hasSecrets) return (<Empty />);
+  if (!hasSecrets) return (<FirstUse />);
 
   return (
     <>

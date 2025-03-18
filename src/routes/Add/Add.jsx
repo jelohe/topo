@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 import Header from '@/Header';
 import useVault from '@/useVault';
-import Scanner from '@/Scanner';
+import Scanner from './Scanner';
 
 export default function Add() {
   const { bulkUpdate } = useVault();

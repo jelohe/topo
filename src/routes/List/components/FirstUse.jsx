@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router'
 import Header from '@/Header';
 
-export default function Empty() {
+export default function FirstUse() {
   const navigate = useNavigate()
 
   return (
