@@ -33,9 +33,11 @@ Some applications and websites push their own authenticator, which makes the QR 
 
 ## Security concerns
 
-Topo stores your secrets in [localStorage](https://www.w3schools.com/jsref/prop_win_localstorage.asp) to keep everything in the browser and avoid cookies, however localStorage stores your data as plain text.
+Topo stores your secrets in [localStorage](https://www.w3schools.com/jsref/prop_win_localstorage.asp) to keep everything in the browser and avoid cookies, however localStorage files are not encrypted on your device. If your device is compromised and someone has access to your files they could easily steal your secrets.
 
 Because Topo is written is JavaScript, [XSS attacks](https://owasp.org/www-community/attacks/xss/) are still a potential security issue of the language. Topo tries to mitigate that by having as minimal interaction as possible with the user and the environment. The only input that could be dangerous is a malicious QR code.
+
+If your secrets are ever compromised, rotate your credentials: generate new QR codes for every application or service that was stored on Topo as soon as possible.
 
 ##### **TL;DR: Be careful with the QRs that you scan and keep Topo on a safe device.**
 
@@ -44,14 +46,24 @@ Because Topo is written is JavaScript, [XSS attacks](https://owasp.org/www-commu
 
 Feel free to open issues and PRs.
 
+
 #### Workflow with [vite](https://vite.dev/):
 
 You need `nodejs` and a dependency manager like `npm`.
 
-* `npm i` install all dependencies.
+
+##### Running locally
+
+* `npm i` install dependencies.
 * `npm run dev` run a local development server.
 * `npm run build` create a production build inside `./dist`.
 * `npm run preview` run a server serving `./dist` content.
-* `npm run test` interactive testing.
-* `npm run ci` run all tests.
+
+
+##### Testing
+
+* `npm run test:watch` interactive unit testing.
+* `npm run test:run` run unit test headless.
+* `npm run e2e:open` interactive end to end testing (requires a server running).
+* `npm run e2e:run` run end to end tests headless (also requires a server running).
 
