@@ -154,7 +154,7 @@ img {
 }
 
 .card-wrapper > .card-header {
-    margin: 0;
+    align-items: baseline;
     background-color: #2e333d;
     border-radius: 0.25em 0.25em 0 0;
     border-width: 0;
@@ -162,6 +162,8 @@ img {
     display: flex;
     font-size: 1.25em;
     font-weight: 600;
+    justify-content: space-between;
+    margin: 0;
     padding: 0 1.5rem;
 }
 
@@ -199,7 +201,7 @@ img {
     background-color: rgb(224, 0, 123);
 }
 
-.back-button {
+.black-button {
     background-color: hsl(221, 14%,calc(9% + 0%));
     color: #ebecf0;
     cursor: pointer;
@@ -209,13 +211,17 @@ img {
     border-radius: 0.25em;
     padding: 0.6em 1em;
 }
-.back-button:hover {
+.black-button:hover {
     background-color: hsl(221, 14%,calc(9% + 5%));
     border: 1px solid rgb(75, 82, 99);
     color: #eee;
 }
-.back-button:active {
+.black-button:active {
     background-color: rgb(42, 46, 55);
     border: 1px solid rgb(96, 106, 128);
     color: #fff;
+}
+
+.export-qr-button {
+    border-radius: 8px;
 }

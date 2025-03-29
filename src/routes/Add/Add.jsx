@@ -15,7 +15,7 @@ export default function Add() {
   return (
     <>
       <Header>
-        <button onClick={() => navigate('/')} className="back-button">
+        <button onClick={() => navigate('/')} className="black-button">
           back
         </button>
       </Header>
