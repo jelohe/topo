@@ -20,13 +20,13 @@ describe('when vault is empty', () => {
   });
 
   it('provides a button to scan secrets', async () => {
-    const { getByRole } = render(
+    const { getByTestId } = render(
       <BrowserRouter>
         <List />
       </BrowserRouter>
     );
 
-    await fireEvent.click(getByRole('button'))
+    await fireEvent.click(getByTestId('scan-first-qr'))
 
     expect(window.location.pathname).toBe('/add');
   });
@@ -76,13 +76,13 @@ describe('when vault has secrets', () => {
   it('provides a button to scan secrets', async () => {
     const vault = { topo: 'toposecret', topete: 'topetesecret' }
     window.localStorage.setItem('secrets', JSON.stringify(vault));
-    const { getByRole } = render(
+    const { getByTestId } = render(
       <BrowserRouter>
         <List />
       </BrowserRouter>
     );
 
-    await fireEvent.click(getByRole('button'))
+    await fireEvent.click(getByTestId('add-qr-button'))
 
     expect(window.location.pathname).toBe('/add');
   });

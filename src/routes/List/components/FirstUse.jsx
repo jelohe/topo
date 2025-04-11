@@ -12,9 +12,9 @@ export default function FirstUse() {
           Topo allows you to store <span className="highlight">Secrets</span> and generate temporary access <span className="highlight">Codes</span> for two factor authentication.
         </p>
         <p>
-          Secrets are usually provided as <span className="highlight">QR Codes</span>. You should keep the QR image somewhere safe as a backup.
+          Services provide Secrets as <span className="highlight">QR Codes</span>
         </p>
-        <p>Start by scanning a QR code to store your first secret.</p>
+        <p>Start by <span className="highlight">Scanning</span> a QR code to store your first secret.</p>
       </div>
       <button
           onClick={() => navigate('/add')}

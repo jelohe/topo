@@ -4,18 +4,30 @@ import camera from './camera';
 const defaultOnScan = () => {};
 export default function Scanner({ onScan = defaultOnScan }) {
   const videoEl = useRef(null);
+  const pollingRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAvailable, setIsAvailable] = useState(true);
 
   useEffect(() => {
     const el = videoEl.current;
-    camera.open(el)
-      .then(el => camera.scan(el))
-      .then(uris => onScan(uris))
-      .catch(() => setIsAvailable(false))
-      .finally(() => setIsLoading(false));
+    function polling() {
+      camera.scan(el).then(onScan);
+    }
+    function startPolling() {
+      pollingRef.current = setInterval(polling, 250);
+    };
+
+    camera.open(el).then(() => {
+      setIsLoading(false);
+      startPolling();
+    }).catch(() => {
+      setIsLoading(false);
+      setIsAvailable(false)
+    });
 
     return () => {
+      clearInterval(pollingRef.current);
+
       if (!el || !el.srcObject) return;
       el.srcObject.getTracks().forEach(t => t.stop());
       el.srcObject = null;

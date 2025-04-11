@@ -1,4 +1,4 @@
-import { BarcodeDetector } from 'barcode-detector';
+import 'barcode-detector/polyfill';
 
 function open(el) {
   return new Promise((resolve, reject) => {
