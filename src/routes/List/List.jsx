@@ -24,15 +24,13 @@ export default function List() {
         onCycleEnd={() => setCodes(generateCodes(vault))}
       />
       <Header>
-        <button onClick={() => navigate('/add')} className="add-qr-button">
-          <img src="/images/qr.svg" alt="qr-icon" width="20" height="20" />
-        </button>
+        <button onClick={() => navigate('/add')} className="add-qr-button">+</button>
       </Header>
 
       <div>
         {
           Object.entries(codes).map(([name, code]) => (
-            <CodeCard name={name} key={name} code={code} />
+            <CodeCard name={name} key={name} code={code} secret={vault[name]} />
           ))
         }
       </div>

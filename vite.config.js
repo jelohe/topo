@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
+import mkcert from 'vite-plugin-mkcert'
 import react from '@vitejs/plugin-react'
 import * as path from 'path'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), mkcert()],
   base: '/',
   build: {
     assetsDir: 'static',

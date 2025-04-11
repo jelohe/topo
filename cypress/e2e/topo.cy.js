@@ -1,6 +1,6 @@
 describe('When opening the app for the first time', () => {
   it('scans a QR and shows it on the list', () => {
-    cy.visit('localhost:5173');
+    cy.visit('https://localhost:5173');
     cy.contains('Secret');
     cy.contains('Code');
 
